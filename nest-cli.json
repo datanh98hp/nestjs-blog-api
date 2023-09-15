@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/blog-api/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/blog-api/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/blog-api",
+  "projects": {
+    "blog-api": {
+      "type": "application",
+      "root": "apps/blog-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/blog-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/blog-api/tsconfig.app.json"
+      }
+    },
+    "post": {
+      "type": "application",
+      "root": "apps/post",
+      "entryFile": "main",
+      "sourceRoot": "apps/post/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/post/tsconfig.app.json"
+      }
+    },
+    "category": {
+      "type": "application",
+      "root": "apps/category",
+      "entryFile": "main",
+      "sourceRoot": "apps/category/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/category/tsconfig.app.json"
+      }
+    },
+    "media": {
+      "type": "application",
+      "root": "apps/media",
+      "entryFile": "main",
+      "sourceRoot": "apps/media/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/media/tsconfig.app.json"
+      }
+    },
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    },
+    "auth": {
+      "type": "application",
+      "root": "apps/auth",
+      "entryFile": "main",
+      "sourceRoot": "apps/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/auth/tsconfig.app.json"
+      }
+    }
+  }
+}

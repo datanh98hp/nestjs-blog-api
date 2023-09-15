@@ -1,0 +1,66 @@
+
+services:
+  # api:
+  #   build: 
+  #     context: .
+  #     target: development
+  #     dockerfile: ./apps/blog-api/Dockerfile
+  #   env_file:
+  #     - ./apps/blog-api/.env
+  #   command: npm run start:dev blog-api --watch
+  #   depends_on:
+  #     # - mysql
+  #     - redis
+  #     - post
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   ports:
+  #     - '3000:3000'
+  # post:
+  #   build: 
+  #     context: .
+  #     target: development
+  #     dockerfile: ./apps/post/Dockerfile
+  #   env_file:
+  #     - ./apps/post/.env
+  #   command: npm run start:dev post --watch
+  #   depends_on:
+  #     # - mysql
+  #     - redis
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
+  # auth:
+  #   build: 
+  #     context: .
+  #     target: development
+  #     dockerfile: ./apps/auth/Dockerfile
+  #   env_file:
+  #     - ./apps/auth/.env
+  #   command: npm run start:dev post --watch
+  #   depends_on:
+  #     # - mysql
+  #     - redis
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
+  mysql:
+    image: mysql:8.0
+    # command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_DATABASE=blog_app
+      - MYSQL_ROOT_PASSWORD=123456
+    expose:
+      - '3306:3306'
+    
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis:/data
+volumes:
+  redis:
+    driver: local
