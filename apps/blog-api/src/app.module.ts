@@ -8,6 +8,8 @@ import { PostModule } from './post/post.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthService } from './auth/auth.service';
+import { CategoryModule } from './category/category.module';
+
 
 @Module({
   imports: [
@@ -40,7 +42,8 @@ import { AuthService } from './auth/auth.service';
       /// OTHER_SERVICE
     
     ]),
-    
+    CategoryModule,
+
   ],
   controllers: [AppController, PostController],
   providers: [AppService, PostService],

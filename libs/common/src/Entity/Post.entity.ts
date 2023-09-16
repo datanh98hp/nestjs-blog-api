@@ -1,3 +1,4 @@
+import { Category } from './Category.entity';
 import { User } from './User.entity';
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
@@ -15,6 +16,8 @@ export class Post {
     content:string;
     @Column({nullable:true})
     thumbnail:string;
+    @ManyToOne(() => Category, (category) => category.posts)
+    category: Category
     @ManyToOne(()=>User,(user)=>user.posts)
     author:User
     @CreateDateColumn({nullable:true})

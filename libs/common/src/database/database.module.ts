@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Post } from '../Entity/Post.entity';
+import { Category } from '../Entity/Category.entity';
 
 @Module({
     imports:[
@@ -16,7 +17,7 @@ import { Post } from '../Entity/Post.entity';
             username: process.env.MYSQL_USERNAME,
             password: process.env.MYSQL_PASSWORD,
             database: process.env.MYSQL_DATABASE,
-            entities: [Post,User],
+            entities: [Post,User,Category],
             synchronize: true
         })
     ]
