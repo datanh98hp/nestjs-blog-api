@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthService } from './auth/auth.service';
 import { CategoryModule } from './category/category.module';
+import { CommentModule } from './comment/comment.module';
 
 
 @Module({
@@ -43,6 +44,7 @@ import { CategoryModule } from './category/category.module';
     
     ]),
     CategoryModule,
+    CommentModule,
 
   ],
   controllers: [AppController, PostController],

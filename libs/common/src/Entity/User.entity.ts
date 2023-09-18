@@ -1,6 +1,7 @@
 import { BeforeInsert, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Post } from "./Post.entity";
 import { hash } from "bcrypt";
+import { Comment } from "./Comment.entity";
 
 @Entity()
 export class User {
@@ -22,6 +23,8 @@ export class User {
     status:number;
     @OneToMany(type => Post, post => post.author)
     posts:Post[];
+    @OneToMany(type=>Comment,comment=>comment.user)
+    comments:Comment[]
     @CreateDateColumn({ nullable: true })
     created_at: Date
     @UpdateDateColumn({ nullable: true })
