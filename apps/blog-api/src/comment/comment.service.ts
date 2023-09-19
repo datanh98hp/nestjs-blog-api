@@ -17,4 +17,12 @@ export class CommentService {
     async getCommentsByPost(idPost){
         return await this.client.send('get-comments',idPost);
     }
+    async getCommentsByUser(idUser) {
+        return await this.client.send('get-comments-by-user', idUser);
+    }
+    async delete(id: number) {
+        console.log(id)
+        return await this.client.send('delete-comments', id);
+    }
+
 }

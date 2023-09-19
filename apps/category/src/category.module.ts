@@ -8,7 +8,8 @@ import { DatabaseModule } from '@app/common/database/database.module';
 @Module({
   imports: [
     DatabaseModule,
-    TypeOrmModule.forFeature([Category])],
+    TypeOrmModule.forFeature([Category])
+  ],
   controllers: [CategoryController],
   providers: [CategoryService],
 })

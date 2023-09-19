@@ -24,4 +24,16 @@ export class CommentService {
       relations:['post']
     });
   }
+  async getCommentsByUser(idUser) {
+    console.log(idUser);
+    return await this.commentRepository.find({
+      where: [
+        { user: { id: idUser } }
+      ],
+      relations: ['user']
+    });
+  }
+  async delete(id: number){
+    return await this.commentRepository.delete(id);
+  }
 }

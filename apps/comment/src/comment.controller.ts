@@ -16,4 +16,15 @@ export class CommentController {
   async getCommentByPost(@Payload() idPost: number, @Ctx() context: RedisContext){
     return await this.commentService.getCommentsByPost(idPost);
   }
+
+  @EventPattern('delete-comments')
+  async deleteComment(@Payload() id: number){
+    return await this.commentService.delete(id);
+  }
+
+  @EventPattern('get-comments-by-user')
+  async getCommentByUser(@Payload() id: number){
+    return await this.commentService.getCommentsByUser(id);
+  }
+
 }
